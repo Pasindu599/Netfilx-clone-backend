@@ -14,6 +14,6 @@ router.post("/login", login);
 
 router.post("/logout", logout);
 
-router.post("/all-users", getAllUsers);
+router.get("/all-users", getAllUsers);
 
 export default router;

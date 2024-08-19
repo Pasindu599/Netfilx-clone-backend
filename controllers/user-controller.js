@@ -151,3 +151,20 @@ export async function logout(req, res, next) {
     });
   }
 }
+
+export async function getAllUsers(req, res, next) {
+  try {
+    const users = await User.find();
+    return res.status(200).json({
+      sucess: true,
+      message: "All users fetched successfully",
+      users: users,
+    });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({
+      sucess: false,
+      message: "Internal Server Error",
+    });
+  }
+}

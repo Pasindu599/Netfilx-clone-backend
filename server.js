@@ -2,6 +2,7 @@ import express from "express";
 
 import userRoutes from "./routes/user-routes.js";
 import movieRoutes from "./routes/movie-routes.js";
+import cors from "cors";
 
 import { ENV_VARS } from "./config/envVars.js";
 import { connectDB } from "./config/db.js";
@@ -10,6 +11,7 @@ const app = express();
 const PORT = ENV_VARS.BACKEND_PORT;
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/movies", movieRoutes);
